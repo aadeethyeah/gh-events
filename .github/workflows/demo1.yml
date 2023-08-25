@@ -1,5 +1,9 @@
 name: Events Demo 1
-on: ...
+on:
+  pull_request:         # first event with Activity Type
+    types: 
+      - opened
+  workflow_dispatch:    # second event
 jobs:
   deploy:
     runs-on: ubuntu-latest
