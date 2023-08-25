@@ -3,9 +3,18 @@ on:
   pull_request:         # first event with Activity Type
     types: 
       - opened
+    branches:
+      - main
+      - 'dev-*'   #branch name with prefix dev should trigger the event
+      - 'feat/**' #feat/new #feat/new/button
   workflow_dispatch:    # second event
+  push:
+    branches:
+      - main
+      - 'dev-*'   #branch name with prefix dev should trigger the event
+      - 'feat/**' #feat/new #feat/new/button
 jobs:
-  deploy:
+  deploy: 
     runs-on: ubuntu-latest
     steps:
       - name: Output event data
